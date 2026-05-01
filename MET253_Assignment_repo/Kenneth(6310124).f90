@@ -1,26 +1,25 @@
-PROGRAM Exam_Scores
-IMPLICIT NONE
-INTEGER, DIMENSION(10):: Scores
-INTEGER:: i,b
-DO i = 1,10
- b(1) = 85
- b(2) = 62
- b(3) = 45
- b(4) = 91
- b(5) = 38
- b(6) = 74
- b(7) = 55
- b(8) = 88
- b(9) = 61
- b(10) = 47
- END DO
- IF (b>=80) THEN
- PRINT*, 'A', 'Distinction'
- ELSE IF (b>=60 and b<=79)
- PRINT*, 'B', 'CREDIT'
- ELSE IF (b>=40 and b<=59)
- PRINT*, 'C', 'PASS'
- ELSE (b>=0 and b<=39)
- PRINT*, 'F' . 'FAIL'
- END PROGRAM Exam_scores
- !6310124
+program Exam_scores
+implicit none
+integer :: i
+integer :: marks(10)
+character :: grade
+character(len=12) :: remark
+marks = (/85, 62, 45, 91, 38, 74, 55, 88, 61, 47/)
+print *, "STUDENT RESULTS"
+do i = 1, 10
+if (marks(i) >= 80) then
+grade = 'A'
+remark = 'Distinction'
+else if (marks(i) >= 60) then
+grade = 'B'
+remark = 'Credit'
+else if (marks(i) >= 40) then
+grade = 'C'
+remark = 'Pass'
+else
+grade = 'F'
+remark = 'Fail'
+end if
+print *, "Student", i, " Score:", marks(i), " Grade:", grade, " ", remark
+end do
+end program Exam_scores
